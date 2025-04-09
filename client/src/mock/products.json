@@ -1,0 +1,103 @@
+[
+    {
+      "id": 1,
+      "image": "https://example.com/img1.jpg",
+      "alt": "Zapatillas deportivas negras",
+      "title": "Zapatillas Urbanas Pro",
+      "isNew": true,
+      "categories": ["calzado", "deporte"],
+      "description": "Zapatillas ligeras y cómodas para uso diario o entrenamiento.",
+      "price": 79.99
+    },
+    {
+      "id": 2,
+      "image": "https://example.com/img2.jpg",
+      "alt": "Reloj inteligente negro",
+      "title": "Smartwatch Pulse 2",
+      "isNew": false,
+      "categories": ["tecnología", "wearables"],
+      "description": "Reloj inteligente con monitor de ritmo cardíaco y GPS integrado.",
+      "price": 129.5
+    },
+    {
+      "id": 3,
+      "image": "https://example.com/img3.jpg",
+      "alt": "Auriculares inalámbricos blancos",
+      "title": "Auriculares SoundFree",
+      "isNew": true,
+      "categories": ["audio", "tecnología"],
+      "description": "Auriculares Bluetooth con cancelación activa de ruido.",
+      "price": 59.0
+    },
+    {
+      "id": 4,
+      "image": "https://example.com/img4.jpg",
+      "alt": "Mochila de tela gris",
+      "title": "Mochila Urbana Eco",
+      "isNew": false,
+      "categories": ["accesorios", "mochilas"],
+      "description": "Mochila resistente al agua con compartimiento para laptop.",
+      "price": 45.25
+    },
+    {
+      "id": 5,
+      "image": "https://example.com/img5.jpg",
+      "alt": "Cámara fotográfica vintage",
+      "title": "Cámara Retro Instax",
+      "isNew": true,
+      "categories": ["fotografía", "vintage"],
+      "description": "Cámara instantánea con diseño retro y resultados únicos.",
+      "price": 89.99
+    },
+    {
+      "id": 6,
+      "image": "https://example.com/img6.jpg",
+      "alt": "Sudadera con capucha azul marino",
+      "title": "Sudadera Comfy Azul",
+      "isNew": false,
+      "categories": ["ropa", "hombre"],
+      "description": "Sudadera cálida de algodón ideal para clima fresco.",
+      "price": 39.9
+    },
+    {
+      "id": 7,
+      "image": "https://example.com/img7.jpg",
+      "alt": "Lámpara LED de escritorio",
+      "title": "Lámpara Minimal LED",
+      "isNew": true,
+      "categories": ["hogar", "iluminación"],
+      "description": "Lámpara con brazo flexible y 3 niveles de intensidad.",
+      "price": 22.75
+    },
+    {
+      "id": 8,
+      "image": "https://example.com/img8.jpg",
+      "alt": "Botella térmica color menta",
+      "title": "Botella Termo 500ml",
+      "isNew": false,
+      "categories": ["accesorios", "bebidas"],
+      "description": "Botella de acero inoxidable que conserva la temperatura por horas.",
+      "price": 18.3
+    },
+    {
+      "id": 9,
+      "image": "https://example.com/img9.jpg",
+      "alt": "Set de lápices de colores",
+      "title": "Kit Artístico ColorBox",
+      "isNew": true,
+      "categories": ["arte", "papelería"],
+      "description": "Set de 36 lápices de colores vibrantes con estuche de viaje.",
+      "price": 27.99
+    },
+    {
+      "id": 10,
+      "image": "https://example.com/img10.jpg",
+      "alt": "Silla ergonómica negra",
+      "title": "Silla ErgoWork Pro",
+      "isNew": false,
+      "categories": ["oficina", "muebles"],
+      "description": "Silla ergonómica con soporte lumbar ajustable y ruedas silenciosas.",
+      "price": 149.99
+    }
+  ]
+  
