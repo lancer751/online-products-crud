@@ -1,22 +1,28 @@
-import { createContext, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
+
+interface FiltContext {
+    filters: Filters,
+    setFilters: Dispatch<SetStateAction<Filters>>
+}
 
 interface Filters {
     title: string,
-    category: string
+    category: string,
+    minPrice: number
 }
+export const FiltersContext = createContext<FiltContext | undefined>(undefined)
 
-export const FiltersContext = createContext()
 
-
-export const FiltersProvider = ({children}) => {
-    const [filters, setFilters] = useState({
+export const FiltersProvider = ({children} : {children: ReactNode}) => {
+    const [filters, setFilters] = useState<Filters>({
         title: "",
-        category: ""
+        category: "all", 
+        minPrice: 0
       })
-    
     return (
         <FiltersContext.Provider value={{
-            
+            filters,
+            setFilters
         }}>
             {children}
         </FiltersContext.Provider>

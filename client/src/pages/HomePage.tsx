@@ -4,9 +4,10 @@ import ProductCard from "../components/ProductCard";
 import { Product } from "../types/product";
 import productsData from "../mock/products.json"
 import { useCart } from "../hooks/useCart";
+import { useFilters } from "../hooks/useFilters";
 
 export default function HomePage() {
-    const [products, setProducts] = useState<Product[]>(productsData)
+    const {filters, filterProducts} = useFilters()
     const {addToCart, deleteFromCart, cart} = useCart()
 
     const isProductInCart = (product : Product) => {
@@ -17,6 +18,8 @@ export default function HomePage() {
         return true
     }
 
+    const filteredProducts = filterProducts(productsData)
+    console.log(filteredProducts)
     return (
         <main className="max-w-screen-xl mx-auto w-[90%]">
             <section className="text-center text-primary space-y-6 pt-16 pb-7">
@@ -32,7 +35,7 @@ export default function HomePage() {
             <section className="py-16">
                 <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {
-                        products.map(product => [
+                        filteredProducts?.map(product => [
                             <ProductCard key={product.id} product={product} addToCart={addToCart} isProductInCart={isProductInCart}  deleteFromCart={deleteFromCart}/>
                         ])
                     }
