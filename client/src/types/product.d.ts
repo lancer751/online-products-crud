@@ -4,7 +4,8 @@ export interface Product {
     alt: string,
     title: string,
     isNew: boolean,
-    categories: string[],
+    category: string,
     description: string,
     price: number,
+    quantity?: number
 }

@@ -3,9 +3,12 @@ import { FaShoppingCart } from "react-icons/fa"
 import { LuMoon } from "react-icons/lu"
 import { useState } from "react"
 import Cart from "./Cart"
+import { useCart } from "../hooks/useCart"
+import { Link } from "react-router-dom"
 
 export default function NavBar() {
     const [openCart, setOpenCart] = useState(false)
+    const {cart} = useCart()
 
     const handleOpenCart = () => {
         setOpenCart(!openCart)
@@ -17,11 +20,14 @@ export default function NavBar() {
                 <a href="/" className="text-2xl md:text-4xl text-primary font-extrabold">GodShop</a>
             </div>
             <div className="flex gap-4">
-                <div  onClick={handleOpenCart}  className="dropdown dropdown-end">
+                <Link to={"/panel/productos"} className="btn text-white bg-amber-400 hover:bg-amber-600">
+                    Panel de productos
+                </Link>
+                <div  onClick={handleOpenCart}>
                     <div className="btn btn-primary btn-circle">
                         <div className="indicator">
                             <FaShoppingCart size={20} />
-                            <span className="badge badge-sm indicator-item">4</span>
+                            <span className="badge badge-sm indicator-item">{cart.length}</span>
                         </div>
                     </div>
                 </div>
