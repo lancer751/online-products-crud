@@ -1,10 +1,10 @@
-import { Request, RequestHandler, Response } from "express";
+import { Request, Response } from "express";
 import { PrismaClient } from "../generated/prisma";
 
 const prisma = new PrismaClient();
 
 interface Product {
-  id: number;
+  readonly id: number;
   image: string;
   name: string;
   price: number;
@@ -17,7 +17,8 @@ export async function getProducts(req: Request, res: Response) {
   try {
     const allProducts = await prisma.product.findMany();
     console.log(allProducts);
-    return res.status(200).json({ success: true, data: allProducts });
+    res.status(200).json({ success: true, data: allProducts });
+    return;
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" });
     console.log("Error in getProducts", error);
@@ -35,9 +36,8 @@ export async function getSingleProduct(req: Request, res: Response) {
     });
 
     if (singleProduct === null) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Product Not Found" });
+      res.status(404).json({ success: false, error: "Product Not Found" });
+      return;
     }
 
     console.log(singleProduct);
@@ -58,22 +58,33 @@ export async function createProduct(req: Request, res: Response) {
     !product.categoryId ||
     product.isnew === undefined
   ) {
-    return res
+    res
       .status(400)
       .json({ success: false, message: "Faltan campos requeridos" });
+    return;
   }
 
   try {
+    const existingProduct = await prisma.product.findUnique({
+      where: {
+        name: product.name
+      }
+    })
+
+    if(existingProduct !== null) {
+      res.status(409).json({success: false, message: "Este producto ya existe."})
+      return
+    }
+
     const newProduct = await prisma.product.create({
       data: product,
     });
 
     res.status(201).json({ success: true, data: newProduct });
+    return;
   } catch (error) {
     console.log("Error in createProduct", error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal Server Error" });
+    res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 }
 
@@ -87,9 +98,8 @@ export async function updateProduct(req: Request, res: Response) {
     });
 
     if (!existingProduct) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+      res.status(404).json({ success: false, message: "Product not found" });
+      return;
     }
 
     const updatedProduct = await prisma.product.update({
@@ -98,6 +108,7 @@ export async function updateProduct(req: Request, res: Response) {
     });
 
     res.status(200).json({ success: true, data: updatedProduct });
+    return;
   } catch (error) {
     console.error("Error in updateProduct:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });
@@ -113,9 +124,8 @@ export async function deleteProduct(req: Request, res: Response) {
     });
 
     if (!existingProduct) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+      res.status(404).json({ success: false, message: "Product not found" });
+      return;
     }
 
     await prisma.product.delete({
@@ -125,6 +135,7 @@ export async function deleteProduct(req: Request, res: Response) {
     res
       .status(200)
       .json({ success: true, message: "Product deleted successfully" });
+    return;
   } catch (error) {
     console.error("Error in deleteProduct:", error);
     res.status(500).json({ success: false, message: "Internal Server Error" });

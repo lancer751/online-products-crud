@@ -13,7 +13,7 @@
     "dev": "tsx watch ./src/index.ts",
     "start": "node ./dist/index.mjs",
     "build": "pkgroll --clean-dist",
-    "makemigrations": "pnpm exec prisma migrate dev --name init",
+    "makemigrations": "pnpm exec prisma migrate dev",
     "resetdatabase": "pnpm exec prisma migrate reset",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
