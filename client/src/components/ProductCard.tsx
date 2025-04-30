@@ -9,24 +9,24 @@ interface Props {
 }
 
 export default function ProductCard({ product, addToCart, isProductInCart, deleteFromCart }: Props) {
-    const { image, alt, category, description, price, id, title, isNew } = product
+    const { image, category, description, price, id, name, isNew } = product
 
     return (
         <div className={`card ${isProductInCart(product) && 'outline-2 outline-accent'} card-sm md:card-md bg-primary-content w-full max-w-96 shadow-sm hover:-translate-y-3.5 transition-transform duration-700`}>
             <figure>
-                <img src={shoes} alt={alt} />
+                <img src={shoes} alt={name} />
             </figure>
             <div className="card-body space-y-2">
                 <h2 className="text-neutral-content md:text-2xl font-bold card-title">
                     <p className="line-clamp-1">
-                        {title}
+                        {name}
                     </p>
                     {
                         isNew && <div className="badge badge-secondary">NEW</div>
                     }
                 </h2>
                 <div className="card-actions justify-start">
-                    <div className="badge-secondary badge badge-outline">{category}</div>
+                    <div className={`${category ? "badge-secondary" : "badge-warning"}  badge badge-outline`}>{category ? category : "Sin Categoría"}</div>
                 </div>
                 <p className="line-clamp-3">
                     {description}

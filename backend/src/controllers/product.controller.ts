@@ -15,9 +15,30 @@ interface Product {
 
 export async function getProducts(req: Request, res: Response) {
   try {
-    const allProducts = await prisma.product.findMany();
+    const allProducts = await prisma.product.findMany({
+      omit: {
+        categoryId: true,
+      },
+      include: {
+        category: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
     console.log(allProducts);
-    res.status(200).json({ success: true, data: allProducts });
+    const flatProducts = allProducts.map((product) => {
+      if(product.category === null) {
+        return product
+      }
+      return {
+        ...product,
+        category: product.category?.name
+      }
+    });
+
+    res.status(200).json({ products: flatProducts });
     return;
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" });
@@ -67,13 +88,15 @@ export async function createProduct(req: Request, res: Response) {
   try {
     const existingProduct = await prisma.product.findUnique({
       where: {
-        name: product.name
-      }
-    })
+        name: product.name,
+      },
+    });
 
-    if(existingProduct !== null) {
-      res.status(409).json({success: false, message: "Este producto ya existe."})
-      return
+    if (existingProduct !== null) {
+      res
+        .status(409)
+        .json({ success: false, message: "Este producto ya existe." });
+      return;
     }
 
     const newProduct = await prisma.product.create({

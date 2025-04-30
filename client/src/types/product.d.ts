@@ -1,11 +1,12 @@
 export interface Product {
     id: number,
     image: string,
-    alt: string,
-    title: string,
+    name: string,
     isNew: boolean,
-    category: string,
+    category: string | null,
     description: string,
     price: number,
     quantity?: number
+    createdAt?: string,
+    updatedAt?: string,
 }

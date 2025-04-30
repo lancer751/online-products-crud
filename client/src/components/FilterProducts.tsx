@@ -15,7 +15,7 @@ export default function FilterProducts() {
 
   return (
     <div>
-      <div className="join join-vertical space-y-9 md:join-horizontal md:gap-0 gap-5 w-full justify-center max-w-md">
+      <div className="join join-vertical md:join-horizontal md:gap-0 gap-5 w-full justify-center max-w-md">
         <div className="w-full">
           <label htmlFor="name">
             <input name="title" onChange={handleFilter} className="input w-full" placeholder="t-shirt, pants, sneaker, etc." />
@@ -28,15 +28,15 @@ export default function FilterProducts() {
           <option>accesorios</option>
         </select>
       </div>
-      <div className="w-full max-w-xs mx-auto">
-        <span className="inline-block text-2xl font-bold">Precio Mínimo: ${filters.minPrice}</span>
+      <div className="w-full max-w-xs mx-auto mt-5">
+        <span className="inline-block text-xl font-bold">Precio Mínimo: ${filters.minPrice}</span>
         <input onChange={handleFilter} name="minPrice" type="range" min={0} max="100" value={filters.minPrice} step={10} className="range" />
-        <div className="flex justify-between px-2.5 mt-2 text-xs">
+        <div className="flex justify-between px-1.5 mt-2 text-xs">
           <span>|</span>
           <span>|</span>
           <span>|</span>
         </div>
-        <div className="flex justify-between px-2.5 mt-2 text-xs">
+        <div className="flex justify-between px-1.5 mt-2 text-xs">
           <span>$0</span>
           <span>$50</span>
           <span>$100</span>

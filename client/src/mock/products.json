@@ -2,8 +2,7 @@
   {
     "id": 1,
     "image": "https://example.com/img1.jpg",
-    "alt": "Zapatillas deportivas negras",
-    "title": "Zapatillas Urbanas Pro",
+    "name": "Zapatillas Urbanas Pro",
     "isNew": true,
     "category": "calzado",
     "description": "Zapatillas ligeras y cómodas para uso diario o entrenamiento.",
@@ -12,8 +11,7 @@
   {
     "id": 2,
     "image": "https://example.com/img2.jpg",
-    "alt": "Reloj inteligente negro",
-    "title": "Smartwatch Pulse 2",
+    "name": "Smartwatch Pulse 2",
     "isNew": false,
     "category": "tecnología",
     "description": "Reloj inteligente con monitor de ritmo cardíaco y GPS integrado.",
@@ -22,8 +20,7 @@
   {
     "id": 3,
     "image": "https://example.com/img3.jpg",
-    "alt": "Auriculares inalámbricos blancos",
-    "title": "Auriculares SoundFree",
+    "name": "Auriculares SoundFree",
     "isNew": true,
     "category": "audio",
     "description": "Auriculares Bluetooth con cancelación activa de ruido.",
@@ -32,8 +29,7 @@
   {
     "id": 4,
     "image": "https://example.com/img4.jpg",
-    "alt": "Mochila de tela gris",
-    "title": "Mochila Urbana Eco",
+    "name": "Mochila Urbana Eco",
     "isNew": false,
     "category": "accesorios",
     "description": "Mochila resistente al agua con compartimiento para laptop.",
@@ -42,8 +38,7 @@
   {
     "id": 5,
     "image": "https://example.com/img5.jpg",
-    "alt": "Cámara fotográfica vintage",
-    "title": "Cámara Retro Instax",
+    "name": "Cámara Retro Instax",
     "isNew": true,
     "category": "fotografía",
     "description": "Cámara instantánea con diseño retro y resultados únicos.",
@@ -52,8 +47,7 @@
   {
     "id": 6,
     "image": "https://example.com/img6.jpg",
-    "alt": "Sudadera con capucha azul marino",
-    "title": "Sudadera Comfy Azul",
+    "name": "Sudadera Comfy Azul",
     "isNew": false,
     "category": "ropa",
     "description": "Sudadera cálida de algodón ideal para clima fresco.",
@@ -62,8 +56,7 @@
   {
     "id": 7,
     "image": "https://example.com/img7.jpg",
-    "alt": "Lámpara LED de escritorio",
-    "title": "Lámpara Minimal LED",
+    "name": "Lámpara Minimal LED",
     "isNew": true,
     "category": "hogar",
     "description": "Lámpara con brazo flexible y 3 niveles de intensidad.",
@@ -72,8 +65,7 @@
   {
     "id": 8,
     "image": "https://example.com/img8.jpg",
-    "alt": "Botella térmica color menta",
-    "title": "Botella Termo 500ml",
+    "name": "Botella Termo 500ml",
     "isNew": false,
     "category": "accesorios",
     "description": "Botella de acero inoxidable que conserva la temperatura por horas.",
@@ -82,8 +74,7 @@
   {
     "id": 9,
     "image": "https://example.com/img9.jpg",
-    "alt": "Set de lápices de colores",
-    "title": "Kit Artístico ColorBox",
+    "name": "Kit Artístico ColorBox",
     "isNew": true,
     "category": "arte",
     "description": "Set de 36 lápices de colores vibrantes con estuche de viaje.",
@@ -92,8 +83,7 @@
   {
     "id": 10,
     "image": "https://example.com/img10.jpg",
-    "alt": "Silla ergonómica negra",
-    "title": "Silla ErgoWork Pro",
+    "name": "Silla ErgoWork Pro",
     "isNew": false,
     "category": "oficina",
     "description": "Silla ergonómica con soporte lumbar ajustable y ruedas silenciosas.",

@@ -26,10 +26,12 @@
   "packageManager": "pnpm@10.8.0+sha256.29bf2c5ceaea7991ee82eec15fe7162e0fad816d0c4a6b35a16c01d39274bf69",
   "dependencies": {
     "@prisma/client": "6.6.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
     "dotenv": "^16.4.7",
@@ -43,6 +45,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@prisma/client",
       "@prisma/engines",
       "esbuild",
       "prisma"

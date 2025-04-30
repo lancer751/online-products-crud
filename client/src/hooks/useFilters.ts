@@ -9,7 +9,7 @@ export function useFilters(){
 
     const filterProducts = (products: Product[]) => {
         return products.filter(pr => {
-            return (pr.title.toLocaleLowerCase().includes(filters.title.toLocaleLowerCase()) || filters.title === "") &&
+            return (pr.name.toLocaleLowerCase().includes(filters.title.toLocaleLowerCase()) || filters.title === "") &&
             (pr.category === filters.category || filters.category === "all") && pr.price >= filters.minPrice
         })
     } 
