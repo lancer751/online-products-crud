@@ -1,7 +1,7 @@
-import { defineConfig } from "eslint/config";
-import globals from "globals";
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config"
+import globals from "globals"
+import js from "@eslint/js"
+import tseslint from "typescript-eslint"
 
 
 export default defineConfig([
@@ -10,14 +10,15 @@ export default defineConfig([
   {
     rules: {
       "no-unused-vars": "warn",
-			"no-undef": "warn",
+      "no-undef": "warn",
       "quotes": ["error", "double"],
       "eqeqeq": ["error", "always"],
       "arrow-body-style": ["error", "as-needed"],
       "prefer-const": "error",
       "no-var": "error",
       "object-shorthand": "error",
+      "semi": ["error", "never"],
     }
   },
   tseslint.configs.recommended,
-]);
+])

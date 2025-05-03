@@ -1,0 +1,142 @@
+[
+  {
+    "image": "https://picsum.photos/200?random=1",
+    "name": "Camiseta Deportiva Nike",
+    "price": 123.45,
+    "description": "Camiseta transpirable ideal para entrenamientos y actividades deportivas.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=2",
+    "name": "Auriculares Bluetooth JBL",
+    "price": 67.89,
+    "description": "Auriculares inalámbricos con sonido envolvente y batería de larga duración.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=3",
+    "name": "Mochila Antirrobo Xiaomi",
+    "price": 150.00,
+    "description": "Mochila con compartimentos secretos y puerto USB para cargar dispositivos.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=4",
+    "name": "Reloj Inteligente Samsung Galaxy Watch",
+    "price": 89.99,
+    "description": "Reloj inteligente con monitor de ritmo cardíaco y notificaciones en tiempo real.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=5",
+    "name": "Zapatillas Adidas Ultraboost",
+    "price": 210.10,
+    "description": "Zapatillas de running con máxima amortiguación y comodidad.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=6",
+    "name": "Teclado Mecánico Logitech G Pro",
+    "price": 45.00,
+    "description": "Teclado mecánico compacto para gaming profesional.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=7",
+    "name": "Cámara Deportiva GoPro Hero 9",
+    "price": 300.00,
+    "description": "Cámara resistente al agua con grabación en 5K y estabilización avanzada.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=8",
+    "name": "Botella Térmica Stanley 1L",
+    "price": 120.00,
+    "description": "Botella de acero inoxidable que mantiene tus bebidas frías o calientes por horas.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=9",
+    "name": "Lámpara LED de Escritorio Xiaomi",
+    "price": 99.99,
+    "description": "Lámpara con luz regulable y diseño minimalista para oficina o estudio.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=10",
+    "name": "Cartera de Cuero Fossil",
+    "price": 55.55,
+    "description": "Cartera elegante de cuero genuino con múltiples compartimentos.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=11",
+    "name": "Tablet Lenovo Tab M10",
+    "price": 199.99,
+    "description": "Tablet de 10 pulgadas ideal para entretenimiento y productividad.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=12",
+    "name": "Cafetera Nespresso Essenza Mini",
+    "price": 80.00,
+    "description": "Cafetera compacta para preparar café espresso de alta calidad en casa.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=13",
+    "name": "Silla Ergonómica de Oficina",
+    "price": 140.00,
+    "description": "Silla con soporte lumbar y ajuste de altura para largas jornadas de trabajo.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=14",
+    "name": "Set de Ollas Tramontina 5 piezas",
+    "price": 75.00,
+    "description": "Juego de ollas de acero inoxidable para cocina profesional y doméstica.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=15",
+    "name": "Smart TV LG 50 pulgadas 4K",
+    "price": 160.00,
+    "description": "Televisor inteligente con resolución 4K y acceso a apps de streaming.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=16",
+    "name": "Bicicleta Urbana Specialized Sirrus",
+    "price": 110.00,
+    "description": "Bicicleta ligera y resistente, perfecta para la ciudad y trayectos diarios.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=17",
+    "name": "Monitor Samsung Curvo 27''",
+    "price": 250.00,
+    "description": "Monitor curvo Full HD para una experiencia inmersiva en juegos y trabajo.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=18",
+    "name": "Freidora de Aire Philips XXL",
+    "price": 130.00,
+    "description": "Freidora sin aceite para cocinar de forma saludable y rápida.",
+    "isnew": false
+  },
+  {
+    "image": "https://picsum.photos/200?random=19",
+    "name": "Impresora Multifunción HP DeskJet",
+    "price": 175.00,
+    "description": "Impresora compacta con escáner y conexión WiFi para el hogar u oficina.",
+    "isnew": true
+  },
+  {
+    "image": "https://picsum.photos/200?random=20",
+    "name": "Juego de Herramientas Black+Decker 100 piezas",
+    "price": 60.00,
+    "description": "Set completo de herramientas para reparaciones y proyectos en casa.",
+    "isnew": false
+  }
+] 
