@@ -14,6 +14,8 @@ interface Product {
 }
 
 export async function getProducts(req: Request, res: Response) {
+  console.log(req.query.page)
+  console.log(req.query.limit)
   const page =
     typeof req.query.page === "string" ? parseInt(req.query.page) : 1
   const limit =
@@ -118,7 +120,7 @@ export async function createProduct(req: Request, res: Response) {
       data: product,
     })
 
-    res.status(201).json({ success: true, data: newProduct })
+    res.status(201).json(newProduct)
     return
   } catch (error) {
     console.log("Error in createProduct", error)
@@ -145,7 +147,7 @@ export async function updateProduct(req: Request, res: Response) {
       data: updates,
     })
 
-    res.status(200).json({ success: true, data: updatedProduct })
+    res.status(200).json(updatedProduct)
     return
   } catch (error) {
     console.error("Error in updateProduct:", error)
@@ -172,10 +174,39 @@ export async function deleteProduct(req: Request, res: Response) {
 
     res
       .status(200)
-      .json({ success: true, message: "Product deleted successfully" })
+      .json({message: "Product deleted successfully" })
     return
   } catch (error) {
     console.error("Error in deleteProduct:", error)
+    res.status(500).json({ success: false, message: "Internal Server Error" })
+  }
+}
+
+export const deleteProductsById = async (req: Request, res: Response) => {
+  const {ids} : {ids: number[]} = req.body
+  
+  if(!Array.isArray(ids) || ids.length === 0) {
+    res.status(400).json({message: "You must send an array with the products ID"})
+    return 
+  }
+
+  try{
+    const result = await prisma.product.deleteMany({
+      where: {
+        id: {
+          in: ids
+        }
+      }
+    })
+
+    if(result.count !== ids.length) {
+      res.status(404).json({"message" : `${result.count} has been deleted but you want delete ${ids.length}. Some Id doesn't exists.`})
+      return 
+    }
+
+    res.status(200).json({message: "Products has been deleted succesfully."})
+  }catch(error){
+    console.log(error)
     res.status(500).json({ success: false, message: "Internal Server Error" })
   }
 }
