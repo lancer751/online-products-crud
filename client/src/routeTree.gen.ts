@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as PanelRouteImport } from './routes/panel/route'
 import { Route as IndexImport } from './routes/index'
+import { Route as PanelIndexImport } from './routes/panel/index'
 import { Route as PanelProductsImport } from './routes/panel/products'
 
 // Create/Update Routes
@@ -27,6 +28,12 @@ const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const PanelIndexRoute = PanelIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PanelRouteRoute,
 } as any)
 
 const PanelProductsRoute = PanelProductsImport.update({
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelProductsImport
       parentRoute: typeof PanelRouteImport
     }
+    '/panel/': {
+      id: '/panel/'
+      path: '/'
+      fullPath: '/panel/'
+      preLoaderRoute: typeof PanelIndexImport
+      parentRoute: typeof PanelRouteImport
+    }
   }
 }
 
@@ -67,10 +81,12 @@ declare module '@tanstack/react-router' {
 
 interface PanelRouteRouteChildren {
   PanelProductsRoute: typeof PanelProductsRoute
+  PanelIndexRoute: typeof PanelIndexRoute
 }
 
 const PanelRouteRouteChildren: PanelRouteRouteChildren = {
   PanelProductsRoute: PanelProductsRoute,
+  PanelIndexRoute: PanelIndexRoute,
 }
 
 const PanelRouteRouteWithChildren = PanelRouteRoute._addFileChildren(
@@ -81,12 +97,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/panel': typeof PanelRouteRouteWithChildren
   '/panel/products': typeof PanelProductsRoute
+  '/panel/': typeof PanelIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/panel': typeof PanelRouteRouteWithChildren
   '/panel/products': typeof PanelProductsRoute
+  '/panel': typeof PanelIndexRoute
 }
 
 export interface FileRoutesById {
@@ -94,14 +111,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/panel': typeof PanelRouteRouteWithChildren
   '/panel/products': typeof PanelProductsRoute
+  '/panel/': typeof PanelIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/panel' | '/panel/products'
+  fullPaths: '/' | '/panel' | '/panel/products' | '/panel/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/panel' | '/panel/products'
-  id: '__root__' | '/' | '/panel' | '/panel/products'
+  to: '/' | '/panel/products' | '/panel'
+  id: '__root__' | '/' | '/panel' | '/panel/products' | '/panel/'
   fileRoutesById: FileRoutesById
 }
 
@@ -135,11 +153,16 @@ export const routeTree = rootRoute
     "/panel": {
       "filePath": "panel/route.tsx",
       "children": [
-        "/panel/products"
+        "/panel/products",
+        "/panel/"
       ]
     },
     "/panel/products": {
       "filePath": "panel/products.tsx",
+      "parent": "/panel"
+    },
+    "/panel/": {
+      "filePath": "panel/index.tsx",
       "parent": "/panel"
     }
   }
