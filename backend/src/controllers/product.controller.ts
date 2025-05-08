@@ -14,11 +14,14 @@ interface Product {
 }
 
 export async function getProducts(req: Request, res: Response) {
-  const page =
-    typeof req.query.page === "string" ? parseInt(req.query.page) : 1
-  const limit =
-    typeof req.query.limit === "string" ? parseInt(req.query.limit) : 10
+  let page = Number(req.query.page) || 1
+  let limit = Number(req.query.limit) || 10
 
+  // Validación para evitar valores inválidos
+  page = page < 1 ? 1 : page
+  limit = limit < 1 ? 10 : limit
+  console.log(page)
+  console.log(req.query.limit)
   const skippedRecords = (page - 1) * limit
 
   try {
@@ -38,7 +41,6 @@ export async function getProducts(req: Request, res: Response) {
     })
     const totalProducts = await prisma.product.count()
     const totalPages = Math.ceil(totalProducts / limit)
-    console.log(allProducts)
     const flatProducts = allProducts.map((product) => {
       if (product.category === null) {
         return product
