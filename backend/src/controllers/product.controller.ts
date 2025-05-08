@@ -20,8 +20,6 @@ export async function getProducts(req: Request, res: Response) {
   // Validación para evitar valores inválidos
   page = page < 1 ? 1 : page
   limit = limit < 1 ? 10 : limit
-  console.log(page)
-  console.log(req.query.limit)
   const skippedRecords = (page - 1) * limit
 
   try {
