@@ -24,6 +24,9 @@ export async function getProducts(req: Request, res: Response) {
 
   try {
     const allProducts = await prisma.product.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
       omit: {
         categoryId: true,
       },
@@ -149,6 +152,58 @@ export async function updateProduct(req: Request, res: Response) {
     return
   } catch (error) {
     console.error("Error in updateProduct:", error)
+    res.status(500).json({ success: false, message: "Internal Server Error" })
+  }
+}
+
+export async function updateProducts(req: Request, res: Response) { 
+  const { ids: pr_ids, isnew, categoryId } : {ids: number[], isnew? : boolean, categoryId?: number | null} = req.body
+  const data: {isnew? : boolean, categoryId?: number | null} = {}
+  if (!Array.isArray(pr_ids) || pr_ids.length === 0) {
+    res.status(400).json({ message: "You must send an array with the products" })
+    return
+  }
+
+  if (isnew !== undefined && typeof isnew !== "boolean") {
+    res.status(400).json({ message: "isnew must be a boolean" })
+    return
+  }
+
+  if(categoryId !== undefined && typeof categoryId !== "number" && categoryId !== null) {
+    res.status(400).json({ message: "categoryId must be a number or null" })
+  }
+  
+  if (typeof isnew === "boolean") {
+    data.isnew = isnew
+  }
+
+  if (typeof categoryId === "number" || categoryId === null) {
+    data.categoryId = categoryId
+  }
+
+  if (data.isnew === undefined && data.categoryId === undefined) {
+    res.status(400).json({ message: "You must send at least one property to update" })
+    return
+  }
+  try {
+    const results = await prisma.product.updateManyAndReturn({
+      where: {
+        id: {
+          in: pr_ids 
+        }
+      },
+      data
+    })
+
+    if(results.length !== pr_ids.length) {
+      res.status(404).json({ message: `${results.length} has been updated but you want update ${pr_ids.length}. Some Id doesn't exists.` })
+      return
+    }
+
+    res.status(200).json({products: results, message: "All products updated successfully"} )
+    return
+  } catch (error) {
+    console.error("Error in updateProducts:", error)
     res.status(500).json({ success: false, message: "Internal Server Error" })
   }
 }

@@ -11,7 +11,6 @@ interface Category {
 export async function getCategories(req: Request, res: Response) {
   try {
     const allCategories = await prisma.category.findMany()
-    console.log(allCategories)
     res.status(200).json({ success: true, data: allCategories })
   } catch (error) {
     res.status(500).json({ success: false, message: "Internal Server Error" })
