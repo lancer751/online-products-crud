@@ -21,12 +21,16 @@ export async function getProducts(req: Request, res: Response) {
   page = page < 1 ? 1 : page
   limit = limit < 1 ? 10 : limit
   const skippedRecords = (page - 1) * limit
+  console.log("Page:", page)
+  console.log("Limit:", limit)
+  console.log("skippedRecords:", skippedRecords)
 
   try {
     const allProducts = await prisma.product.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: [
+        { createdAt: "desc", },
+        {id: "desc"}
+      ],
       omit: {
         categoryId: true,
       },
@@ -51,7 +55,7 @@ export async function getProducts(req: Request, res: Response) {
         category: product.category?.name,
       }
     })
-
+    console.log(flatProducts)
     res.status(200).json({
       products: flatProducts,
       totalProducts,
